@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 const StarMatch = () => {
-  const stars = 5;
+  const stars = utils.random(1, 9);
   return (
     <div className="game">
       <div className="help">
