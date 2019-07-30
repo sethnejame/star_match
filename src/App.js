@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 const StarMatch = () => {
+  const stars = 5;
   return (
     <div className="game">
       <div className="help">
@@ -9,15 +10,9 @@ const StarMatch = () => {
       </div>
       <div className="body">
         <div className="left">
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
+          {utils.range(1, stars).map(starId => 
+            <div key={starId} className="star" />
+          )}
         </div>
         <div className="right">
           <button className="number">1</button>
@@ -78,8 +73,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="header">{this.props.title}</div>
+        <div className="header">
+          {this.props.title}
         </div>
+        <StarMatch />
+      </div>
     );
   }
 }
