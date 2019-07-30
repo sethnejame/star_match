@@ -13,7 +13,7 @@ const PlayNumber = props => (
   <button 
   className="number"
   style={{ backgroundColor: colors[props.status] }}
-  onClick={() => console.log('Num', props.number)}
+  onClick={() => props.onClick(props.number, props.status)}
   >
     {props.number}
   </button>
@@ -21,8 +21,8 @@ const PlayNumber = props => (
 
 const StarMatch = () => {
   const [stars, setStars] = React.useState(utils.random(1, 9));
-  const [availableNums, setAvailableNums] = React.useState([1,2,3,4,5]);
-  const [candidateNums, setCandidateNums] = React.useState([2 ,3]);
+  const [availableNums, setAvailableNums] = React.useState(utils.range(1, 9));
+  const [candidateNums, setCandidateNums] = React.useState([]);
   
   const candidatesAreWrong = utils.sum(candidateNums) > stars;
 
@@ -35,6 +35,23 @@ const StarMatch = () => {
     }
     return 'available';
   };
+
+  const onNumberClick = (number, currentStatus) => {
+    if (currentStatus == 'used') {
+      return;
+    }
+    const newCandidateNums = candidateNums.concat(number);
+    if (utils.sum(newCandidateNums) !== stars) {
+      setCandidateNums(newCandidateNums);
+    } else {
+      const newAvailableNums = availableNums.filter(
+        n => !newCandidateNums.includes(n)
+      );
+      setStars(utils.randomSumIn(newAvailableNums, 9));
+      setAvailableNums(newAvailableNums);
+      setCandidateNums([]);
+    }
+  }
   
   return (
     <div className="game">
@@ -51,6 +68,7 @@ const StarMatch = () => {
               key={number} 
               number={number}
               status={numberStatus(number)}
+              onClick={onNumberClick}
             />
           )}
         </div>
