@@ -1,3 +1,17 @@
+# Star Match Game
+
+The star match game is a simple web app that requires the player to use math skills to complete each level. App was coded by Seth NeJame via the following Plural Sight tut: Plural Sight (Getting Started w/ React) https://app.pluralsight.com/player?course=react-js-getting-started&author=samer-buna&name=react-js-getting-started-m3&clip=7&mode=live
+
+## The Star Match is deployed via GH-Pages:
+https://sethnejame.github.io/star_match/
+1. The game will start with a random amount of stars on the left hand side of the browser window and a number pad to the right of the browser window
+2. The goal of the game is to use the number pad on the right of the window to total the amount of stars on the left side of the window within the given time limit.  The stars will generate randomly until you have selected all available numbers
+3. The game is timed, so the best strategy to complete this game would be to choose as many numbers as possible to total the number of stars displayed.  For instance, if you were shown 8 stars, it would be prudent to select the numbers 4, 3, and 1 instead of just the number 8.  Stars will continue to generate until you get rid of the remaining numbers.
+
+Good luck!
+
+## Project Details
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
