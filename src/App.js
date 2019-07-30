@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 const StarMatch = () => {
-  const stars = utils.random(1, 9);
+  const [stars, setStars] = React.useState(utils.random(1, 9));
   return (
     <div className="game">
       <div className="help">
